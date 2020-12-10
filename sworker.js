@@ -1,7 +1,7 @@
 self.addEventListener("install",e=>{
 
     e.waitUntil(
-        caches.open("static").then(Cache=>{
+        caches.open("static").then(cache=>{
             return cache.addAll["./","./style.css","./img/logo64.png","./img/logo64.png"]
         })
     )
