@@ -1,7 +1,7 @@
 (function () {
     //If serviceWorker supports, then register it.
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register('sworker.js') //setting scope of sw
+      navigator.serviceWorker.register('./sworker.js', { scope: "./" }) //setting scope of sw
       .then(function(registration) {
         console.info('Service worker is registered!');
         checkForPageUpdate(registration); // To check if new content is updated or not
