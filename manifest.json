@@ -1,0 +1,23 @@
+{
+	"name": "MY PROFILE CARD",
+	"short_name": " PROFLE PWA",
+	"description": "MY PROFILE",
+	"start_url": ".",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#f5f5f5",
+	"theme_color": "#009578",
+	"icons": [
+		{
+			"src": "img/logo64.png",
+			"type": "image/png",
+			"sizes": "64x64"
+		},
+		{
+			"src": "img/logo512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	
+	]
+}
