@@ -1,8 +1,3 @@
-//Cache polyfil to support cacheAPI in all browsers
-importScripts('./cache-polyfill.js');
-
-var cacheName = 'cache-v4';
-
 //Files to save in cache
 var files = [
   './',
@@ -57,23 +52,3 @@ self.addEventListener('fetch', (event) => {
   //   return response;
   // }
 });
-
-async function cacheFirst(request) {
-  const cachedResponse = await caches.match(request);
-  return cachedResponse || fetch(request);
-}
-
-async function networkFirst(request) {
-  const dynamicCache = await caches.open(cacheName);
-  try {
-    const networkResponse = await fetch(request);
-    // Cache the dynamic API response
-    dynamicCache.put(request, networkResponse.clone()).catch((err) => {
-      console.warn(request.url + ': ' + err.message);
-    });
-    return networkResponse;
-  } catch (err) {
-    const cachedResponse = await dynamicCache.match(request);
-    return cachedResponse;
-  }
-}
